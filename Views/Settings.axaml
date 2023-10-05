@@ -1,0 +1,56 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:avalonia="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="Gammon.Views.Settings">
+    <StackPanel>
+  <Label FontSize="20">
+      Settings
+  </Label>
+
+        
+        <TabControl>
+            <TabItem Header="General" VerticalContentAlignment="Center">
+                    <Grid ColumnDefinitions="*, 4, *" RowDefinitions="*, *, *">
+                        <GridSplitter Grid.RowSpan="3" Grid.Column="1" Background="Gray" ResizeDirection="Columns"/>
+
+                    
+                    <Label  Grid.Row="0" Grid.Column="0" FontWeight="Bold" HorizontalAlignment="Right">
+                        0:
+                    </Label>
+                    <TextBox Grid.Row="0" Grid.Column="2">
+                        Hello
+                    </TextBox>
+                        </Grid>
+            </TabItem>
+            <TabItem Header="Input" VerticalContentAlignment="Center">
+                <Grid ColumnDefinitions="*, 4, *" RowDefinitions="*, *, *">
+                    <GridSplitter Grid.RowSpan="3" Grid.Column="1" Background="Gray" ResizeDirection="Columns"/>
+
+                    
+                    <Label  Grid.Row="0" Grid.Column="0" FontWeight="Bold" HorizontalAlignment="Right">
+                        0:
+                    </Label>
+                    <TextBox Grid.Row="0" Grid.Column="2">
+                        Helloa
+                    </TextBox>
+                </Grid>
+            </TabItem>
+            </TabControl>
+
+        
+        <Button HorizontalAlignment="Center" Foreground="Green">
+
+            <WrapPanel>
+                <Label Content="{avalonia:MaterialIconExt Kind=Check}"  />
+
+                <Label>
+                    Save
+                </Label>
+            </WrapPanel>
+        </Button>
+    </StackPanel>
+        
+</UserControl>

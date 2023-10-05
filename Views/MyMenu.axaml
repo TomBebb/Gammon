@@ -1,0 +1,22 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:avalonia="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
+             xmlns:viewModels="clr-namespace:Gammon.ViewModels"
+             x:DataType="viewModels:MainWindowViewModel"
+             x:Class="Gammon.Views.MyMenu">
+  
+    <UserControl.DataContext>
+        <viewModels:MainWindowViewModel/>
+    </UserControl.DataContext>
+        <WrapPanel>
+            <Button Flyout="{DynamicResource Settings}" >
+                <WrapPanel>
+                <Label Content="{avalonia:MaterialIconExt Kind=Settings}"  />
+
+                <Label>
+                    Settings
+                </Label>
+                </WrapPanel>
+            </Button>
+        </WrapPanel>
+</UserControl>

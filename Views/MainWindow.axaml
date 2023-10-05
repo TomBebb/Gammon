@@ -1,0 +1,33 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:Gammon.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:views="clr-namespace:Gammon.Views"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        Width="600"
+        Height="400"
+        x:Class="Gammon.Views.MainWindow"
+        x:DataType="vm:MainWindowViewModel"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="Gammon">
+
+    
+    <Design.DataContext>
+        <vm:MainWindowViewModel/>
+    </Design.DataContext>
+    <StackPanel >
+        <DockPanel>
+            <views:MyMenu   />
+        </DockPanel>
+        <Label>Greeting:</Label> 
+        <Label Content="{Binding Greeting}"></Label>
+        <TextBox Text="{Binding Greeting}"></TextBox>
+        </StackPanel>
+    <Window.Resources>
+        <Flyout x:Key="Settings" ShowMode="Transient" Placement="BottomEdgeAlignedLeft">
+                
+            <views:Settings />
+        </Flyout>
+    </Window.Resources>
+</Window>
