@@ -3,7 +3,9 @@
         xmlns:vm="using:Gammon.ViewModels"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:asyncImageLoader="clr-namespace:AsyncImageLoader;assembly=AsyncImageLoader.Avalonia"
         xmlns:views="clr-namespace:Gammon.Views"
+        xmlns:local="clr-namespace:Gammon.Db"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         Width="600"
         Height="400"
@@ -21,10 +23,26 @@
             <views:MyMenu   />
         </DockPanel>
         <Label>Greeting:</Label> 
-        <Label Content="{Binding Greeting}"></Label>
-        <TextBox Text="{Binding Greeting}"></TextBox>
+        <Label Content="{Binding Greeting}" />
+        <TextBox Text="{Binding Greeting}" />
+
+        <DataGrid x:Name="Games" CanUserReorderColumns="True" CanUserResizeColumns="True" ItemsSource="{Binding Games}">
+            
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Product Name"
+                                    Binding="{Binding Path=Name}"/>
+                <DataGridTemplateColumn
+                    Header="Image"
+                    CellTemplate="{DynamicResource ImgTemplate}" />
+            </DataGrid.Columns>
+        </DataGrid>
         </StackPanel>
     <Window.Resources>
+        <DataTemplate x:Key="ImgTemplate" DataType="{x:Type local:Game}" >
+            <Viewbox Width="20" Height="20">
+            <Image asyncImageLoader:ImageLoader.Source="{Binding Image}" />
+            </Viewbox>
+        </DataTemplate>
         <Flyout x:Key="Settings" ShowMode="Transient" Placement="BottomEdgeAlignedLeft">
                 
             <views:Settings />
